@@ -1,6 +1,6 @@
 #ifndef DIYAC_H
 #define DIYAC_H
-
+#include <stddef.h>
 
 // String
 
