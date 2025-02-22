@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "diya_c::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-diya_c-Debug-67db0fab1dcf3f65bbf1.json",
+					"jsonFile" : "target-diya_c-Debug-dd7a46a275515b202e2f.json",
 					"name" : "diya_c",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/kittech/Documents/diya.c/cmake-build-debug",
-		"source" : "/home/kittech/Documents/diya.c"
+		"build" : "/home/kittech/Documents/Projects/diya.c/cmake-build-debug",
+		"source" : "/home/kittech/Documents/Projects/diya.c"
 	},
 	"version" : 
 	{
