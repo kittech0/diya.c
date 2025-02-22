@@ -1,9 +1,8 @@
 {
-	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "libdiya_c.a"
+			"path" : "diya_c"
 		}
 	],
 	"backtrace" : 1,
@@ -11,7 +10,7 @@
 	{
 		"commands" : 
 		[
-			"add_library",
+			"add_executable",
 			"add_compile_options"
 		],
 		"files" : 
@@ -81,13 +80,29 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
 	"id" : "diya_c::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			}
+		],
+		"language" : "C"
+	},
 	"name" : "diya_c",
-	"nameOnDisk" : "libdiya_c.a",
+	"nameOnDisk" : "diya_c",
 	"paths" : 
 	{
 		"build" : ".",
@@ -99,7 +114,8 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -110,7 +126,13 @@
 			"compileGroupIndex" : 0,
 			"path" : "diya.c",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "diya.test.c",
+			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "STATIC_LIBRARY"
+	"type" : "EXECUTABLE"
 }
