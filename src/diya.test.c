@@ -27,7 +27,8 @@ void test(void) {
 size_t main(void) {
     /// TODO: gotta make it work
     diya_Logger_warn(&_logger, STR("test"));
-
+    diya_Logger_warn(&_logger, STR("test"));
+    diya_Logger_warn(&_logger, STR("test"));
     const diya_Result test = diya_Test_result(true);
     diya_RawString* raw_test = UNWRAP(diya_RawString, test);
 }

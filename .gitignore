@@ -75,3 +75,6 @@ dkms.conf
 /src/cmake-build-debug/CMakeFiles/TargetDirectories.txt
 /src/cmake-build-debug/.cmake/api/v1/query/toolchains-v1
 /src/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-811ea44de306af42aa01.json
+/src/cmake-build-debug/.ninja_deps
+/src/cmake-build-debug/.ninja_log
+/src/cmake-build-debug/diya_c
