@@ -6,5 +6,5 @@ add_compile_options(-Wall -Wextra -pedantic -Wmissing-prototypes -Wstrict-protot
         -Wold-style-definition
 )
 
-add_library(diya_c STATIC diya.c)
+add_executable(diya_c diya.c diya.test.c)
 
