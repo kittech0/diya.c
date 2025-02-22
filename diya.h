@@ -1,25 +1,37 @@
 #ifndef DIYAC_H
 #define DIYAC_H
+
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /// String
 
-typedef uint8_t diya_str_raw_t;
+typedef uint8_t* diya_RawString;
 
 typedef struct {
-    //TODO: bool heap;
     size_t length;
-    diya_str_raw_t* value;
-} diya_str_t;
+    diya_RawString value;
+} diya_String;
 
-/**
- * Used to initialize the string
- * @param string the string
-**/
-diya_str_t diya_str_new(diya_str_raw_t* string);
-bool diya_str_equal(diya_str_t str1, diya_str_t str2);
+inline diya_String diya_String_new(diya_RawString str) {
+    const size_t length = sizeof(str) - 1;
+    const diya_String diya_str = {
+        .value = str,
+        .length = length
+    };
+    return diya_str;
+}
+
+inline bool diya_String_equal(diya_String str1, diya_String str2) {
+    if (str1.length != str2.length) return false;
+    for (int i = 0; i < str1.length; i++) {
+        if (str1.value[i] != str2.value[i]) return false;
+    }
+    return true;
+}
 
 /// String
 
@@ -27,40 +39,42 @@ bool diya_str_equal(diya_str_t str1, diya_str_t str2);
 /// Result
 
 typedef enum {
-    err,
-    ok
-} diya_result_type_t;
-
-/// TODO: make own result type generator
-// #define diya_result_new_t(type) typedef struct {\
-// diya_result_type_t type;\
-// union {\
-//     const diya_str_t err;\
-//     type ok;\
-// } value;\
-// } diya_result_type_t;
+    Error,
+    Ok
+} diya_ResultType;
 
 typedef struct {
-    diya_result_type_t type;
+    diya_ResultType type;
 
     union {\
-        const diya_str_t err;
+        const diya_String err;
         void* ok;
     } value;
-} diya_result_t;
+} diya_Result;
 
 
-diya_result_t diya_result_error(diya_str_t err_message);
-
-diya_result_t diya_result_ok(void* ok_value);
-
-#define diya_result_unwrap(type_, variable, result) \
-if ((result).type != ok) { \
-printf("[ERR] diya_result_unwrap: value is error\n"); \
-exit(1); \
-} else { \
-variable = (type_*) (result).value.ok; \
+inline diya_Result diya_Result_error(diya_String err_message) {
+    return (diya_Result){
+        .type = Error,
+        .value.err = err_message
+    };
 }
+
+inline diya_Result diya_Result_ok(void* ok_value) {
+    return (diya_Result){
+        .type = Ok,
+        .value.ok = ok_value
+    };
+}
+
+inline void* diya_Result_unwrap_error() {
+    printf("[ERR] diya_result_unwrap: value is error\n");
+    exit(1);
+}
+
+#define diya_Result_unwrap(type_, result) (result).type == Ok \
+    ? (type_*) result.value.ok \
+    : (type_*) diya_Result_unwrap_error()
 
 /// Result
 
@@ -77,15 +91,16 @@ typedef enum {
     log,
     info,
     debug,
-} diya_logger_level_t;
+} diya_LoggerLevel;
 
 typedef struct {
-    diya_str_t name;
-    diya_logger_level_t level;
-} diya_logger_t;
+    diya_String name;
+    diya_LoggerLevel level;
+} diya_Logger;
 
 
-void diya_logger_warn(diya_logger_t* logger, diya_str_t value); //TODO: make it run
+inline void diya_logger_warn(diya_Logger* logger, diya_String value) {
+}
 
 /// Logger
 

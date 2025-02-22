@@ -6,4 +6,5 @@ add_compile_options(-Wall -Wextra -pedantic -Wmissing-prototypes -Wstrict-protot
         -Wold-style-definition
 )
 
-add_library(diya_c SHARED diya.c)
+add_library(diya_c STATIC diya.c)
+

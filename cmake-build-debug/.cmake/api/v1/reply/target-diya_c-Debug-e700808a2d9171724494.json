@@ -1,8 +1,9 @@
 {
+	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "libdiya_c.so"
+			"path" : "libdiya_c.a"
 		}
 	],
 	"backtrace" : 1,
@@ -42,7 +43,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu11 -fPIC -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu11 -fdiagnostics-color=always"
 				},
 				{
 					"backtrace" : 2,
@@ -69,12 +70,6 @@
 					"fragment" : "-Wold-style-definition"
 				}
 			],
-			"defines" : 
-			[
-				{
-					"define" : "diya_c_EXPORTS"
-				}
-			],
 			"language" : "C",
 			"languageStandard" : 
 			{
@@ -91,19 +86,8 @@
 		}
 	],
 	"id" : "diya_c::@6890427a1f51a3e7e1df",
-	"link" : 
-	{
-		"commandFragments" : 
-		[
-			{
-				"fragment" : "",
-				"role" : "flags"
-			}
-		],
-		"language" : "C"
-	},
 	"name" : "diya_c",
-	"nameOnDisk" : "libdiya_c.so",
+	"nameOnDisk" : "libdiya_c.a",
 	"paths" : 
 	{
 		"build" : ".",
@@ -128,5 +112,5 @@
 			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "SHARED_LIBRARY"
+	"type" : "STATIC_LIBRARY"
 }

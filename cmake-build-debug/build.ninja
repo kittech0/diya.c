@@ -41,7 +41,7 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/kittech/Documents/Projects/diya.c/cmake-build-debug/
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target diya_c
+# Object build statements for STATIC_LIBRARY target diya_c
 
 
 #############################################
@@ -50,29 +50,26 @@ cmake_ninja_workdir = /home/kittech/Documents/Projects/diya.c/cmake-build-debug/
 build cmake_object_order_depends_target_diya_c: phony || .
 
 build CMakeFiles/diya_c.dir/diya.c.o: C_COMPILER__diya_c_unscanned_Debug /home/kittech/Documents/Projects/diya.c/diya.c || cmake_object_order_depends_target_diya_c
-  DEFINES = -Ddiya_c_EXPORTS
   DEP_FILE = CMakeFiles/diya_c.dir/diya.c.o.d
-  FLAGS = -g -std=gnu11 -fPIC -fdiagnostics-color=always -Wall -Wextra -pedantic -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always -Wall -Wextra -pedantic -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition
   OBJECT_DIR = CMakeFiles/diya_c.dir
   OBJECT_FILE_DIR = CMakeFiles/diya_c.dir
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target diya_c
+# Link build statements for STATIC_LIBRARY target diya_c
 
 
 #############################################
-# Link the shared library libdiya_c.so
+# Link the static library libdiya_c.a
 
-build libdiya_c.so: C_SHARED_LIBRARY_LINKER__diya_c_Debug CMakeFiles/diya_c.dir/diya.c.o
+build libdiya_c.a: C_STATIC_LIBRARY_LINKER__diya_c_Debug CMakeFiles/diya_c.dir/diya.c.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/diya_c.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libdiya_c.so
-  SONAME_FLAG = -Wl,-soname,
-  TARGET_FILE = libdiya_c.so
-  TARGET_PDB = diya_c.so.dbg
+  TARGET_FILE = libdiya_c.a
+  TARGET_PDB = diya_c.a.dbg
 
 
 #############################################
@@ -100,7 +97,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build diya_c: phony libdiya_c.so
+build diya_c: phony libdiya_c.a
 
 # =============================================================================
 # Folder targets.
@@ -110,7 +107,7 @@ build diya_c: phony libdiya_c.so
 #############################################
 # Folder: /home/kittech/Documents/Projects/diya.c/cmake-build-debug
 
-build all: phony libdiya_c.so
+build all: phony libdiya_c.a
 
 # =============================================================================
 # Built-in targets
