@@ -20,13 +20,22 @@ diya_Result diya_Result_ok(void* ok_value) {
 
 void diya_Logger_warn(const diya_Logger* logger, const diya_String str, ...) {
     if (warn <= logger->level) {
-        printf("\e[0;93m[%s] WARN:  %.*s\n", logger->name, str.length, str.value);
+        printf("\e[0;93m[%s] WARN:  %.*s\n",
+               (char*)logger->name,
+               (int)str.length,
+               (char*)str.value
+        );
     }
 }
 
 void diya_Logger_error(const diya_Logger* logger, const diya_String str, ...) {
     if (error <= logger->level) {
-        fprintf(stderr, "\033[0;91m[%s] ERROR: %.*s\n", logger->name, str.length, str.value);
+        fprintf(stderr,
+                "\033[0;91m[%s] ERROR: %.*s\n",
+                (char*)logger->name,
+                (int)str.length,
+                (char*)str.value
+        );
     }
 }
 
