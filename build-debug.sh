@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 error () {
-  echo $1
+  echo "$1"
   exit 1
 }
 

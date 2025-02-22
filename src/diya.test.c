@@ -24,11 +24,12 @@ void test(void) {
     printf("test: %d", __linux__);
 }
 
-size_t main(void) {
+int main(void) {
     /// TODO: gotta make it work
     diya_Logger_warn(&_logger, STR("test"));
     diya_Logger_warn(&_logger, STR("test"));
     diya_Logger_warn(&_logger, STR("test"));
-    const diya_Result test = diya_Test_result(true);
+    const diya_Result test = diya_Test_result(false);
     diya_RawString* raw_test = UNWRAP(diya_RawString, test);
+    printf("%s", (char*)*raw_test);
 }
