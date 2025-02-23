@@ -29,7 +29,7 @@ int main(void) {
     diya_Logger_warn(&_logger, STR("test"));
     diya_Logger_warn(&_logger, STR("test"));
     diya_Logger_warn(&_logger, STR("test"));
-    const diya_Result test = diya_Test_result(false);
+    const diya_Result test = diya_Test_result(true);
     diya_RawString* raw_test = UNWRAP(diya_RawString, test);
     char skibid[129] = {-1, 'a', -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -100, -128, '\n'};
     printf("%s", skibid);
