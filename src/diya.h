@@ -17,12 +17,12 @@
 
 /// String
 
-typedef const uint8_t* diya_RawString;
+typedef char* diya_RawString;
 
 typedef struct {
     size_t length;
     diya_RawString value;
-} const diya_String;
+} diya_String;
 
 diya_String diya_String_new(diya_RawString str);
 #define STR(str) diya_String_new(str)
@@ -38,12 +38,12 @@ bool diya_String_equal(diya_String str1, diya_String str2);
 
 /// Logger TODO
 typedef enum {
-    silent,
-    error,
-    warn,
-    log,
-    info,
-    debug,
+    diya_LoggerLevel_silent,
+    diya_LoggerLevel_error,
+    diya_LoggerLevel_warn,
+    diya_LoggerLevel_log,
+    diya_LoggerLevel_info,
+    diya_LoggerLevel_debug,
 } diya_LoggerLevel;
 
 typedef struct {
@@ -60,8 +60,8 @@ void diya_Logger_error(const diya_Logger* logger, const diya_String str, ...);
 /// Result
 
 typedef enum {
-    Error,
-    Ok
+    diya_ResultType_error,
+    diya_ResultType_ok
 } diya_ResultType;
 
 typedef struct {
@@ -77,7 +77,7 @@ diya_Result diya_Result_error(diya_String err_message);
 diya_Result diya_Result_ok(void* ok_value);
 void* _diya_Result_unwrap_error(const diya_Logger* logger, const diya_String error_str);
 
-#define UNWRAP(type_,result) ((result).type == Ok \
+#define UNWRAP(type_,result) ((result).type == diya_ResultType_ok \
 ? (type_*) result.value.ok \
 : (type_*) _diya_Result_unwrap_error(&_logger,result.value.err))
 

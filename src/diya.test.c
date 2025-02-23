@@ -3,7 +3,7 @@
 #include "diya.h"
 
 static const diya_Logger _logger = (diya_Logger){
-    .level = warn,
+    .level = diya_LoggerLevel_warn,
     .name = "diya.test"
 };
 /// TODO: make automatic logger (testing rn)
@@ -31,5 +31,6 @@ int main(void) {
     diya_Logger_warn(&_logger, STR("test"));
     const diya_Result test = diya_Test_result(false);
     diya_RawString* raw_test = UNWRAP(diya_RawString, test);
-    printf("%s", (char*)*raw_test);
+    char skibid[129] = {-1, 'a', -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -100, -128, '\n'};
+    printf("%s", skibid);
 }

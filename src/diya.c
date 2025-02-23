@@ -5,36 +5,37 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 diya_String diya_String_new(const diya_RawString str) {
-    return (diya_String){.value = str, .length = sizeof(str) - 1};
+    return (diya_String){.value = str, .length = strlen(str)};
 }
 
 diya_Result diya_Result_error(const diya_String err_message) {
-    return (diya_Result){.type = Error, .value.err = err_message};
+    return (diya_Result){.type = diya_ResultType_error, .value.err = err_message};
 }
 
 diya_Result diya_Result_ok(void* ok_value) {
-    return (diya_Result){.type = Ok, .value.ok = ok_value};
+    return (diya_Result){.type = diya_ResultType_ok, .value.ok = ok_value};
 }
 
 void diya_Logger_warn(const diya_Logger* logger, const diya_String str, ...) {
-    if (warn <= logger->level) {
-        printf("\e[0;93m[%s] WARN:  %.*s\n",
-               (char*)logger->name,
+    if (diya_LoggerLevel_warn <= logger->level) {
+        printf("\033[0;93m[%s] WARN:  %.*s\n",
+               logger->name,
                (int)str.length,
-               (char*)str.value
+               str.value
         );
     }
 }
 
 void diya_Logger_error(const diya_Logger* logger, const diya_String str, ...) {
-    if (error <= logger->level) {
+    if (diya_LoggerLevel_error <= logger->level) {
         fprintf(stderr,
                 "\033[0;91m[%s] ERROR: %.*s\n",
-                (char*)logger->name,
+                logger->name,
                 (int)str.length,
-                (char*)str.value
+                str.value
         );
     }
 }
